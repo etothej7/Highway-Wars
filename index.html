@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Highway Wars - The Ultimate Trucking Empire Simulator</title>
+    <link href="https://www.highwaywars.com" rel="canonical">
+    <meta name="author" content="Highway Wars">
+    <meta name="copyright" content="Highway Wars 2025. All Rights Reserved.">
+    <meta name="theme-color" content="#000000">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Meta Tags -->
+    <meta property="og:site_name" content="Highway Wars">
+    <meta property="og:title" content="Highway Wars - The Ultimate Trucking Empire Simulator">
+    <meta property="og:description" content="Start with one truck and build your way to a trucking empire. Navigate the highways of America, making crucial decisions that affect your bottom line and business growth in this strategic simulation game.">
+    <meta property="og:locale" content="en_us">
+    <meta name="title" content="Highway Wars - The Ultimate Trucking Empire Simulator">
+    <meta name="description" content="Start with one truck and build your way to a trucking empire. Navigate the highways of America, making crucial decisions that affect your bottom line and business growth in this strategic simulation game.">
+    
+    <style>
+        /* Highway Wars Brand Style Sheet (Condensed version for landing page) */
+        :root {
+          /* Brand Colors */
+          --hw-black: #0b0b0b;
+          --hw-dark-gray: #111111;
+          --hw-medium-gray: #222222;
+          --hw-light-gray: #666666;
+          --hw-white: #ffffff;
+          
+          /* Primary Brand Color */
+          --hw-primary: #f39c12;
+          --hw-primary-dark: #e67e22;
+          --hw-primary-light: #f7bc5d;
+          
+          /* Secondary Brand Color */
+          --hw-secondary: #c0392b;
+          --hw-secondary-dark: #a33025;
+          --hw-secondary-light: #d65548;
+          
+          /* Accent Colors */
+          --hw-accent-1: #2980b9;
+          --hw-accent-2: #27ae60;
+          --hw-accent-3: #8e44ad;
+          
+          /* Typography */
+          --hw-font-primary: 'Rajdhani', 'Saira Condensed', 'Montserrat', 'Segoe UI', sans-serif;
+          --hw-font-secondary: 'Saira', 'Oswald', 'Roboto Condensed', Arial, sans-serif;
+          
+          /* Spacing */
+          --hw-space-xs: 5px;
+          --hw-space-sm: 10px;
+          --hw-space-md: 20px;
+          --hw-space-lg: 40px;
+          --hw-space-xl: 80px;
+          
+          /* Border Radius */
+          --hw-radius-sm: 3px;
+          --hw-radius-md: 5px;
+          --hw-radius-lg: 10px;
+          
+          /* Transitions */
+          --hw-transition-normal: 0.3s ease;
+          
+          /* Shadows */
+          --hw-shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+          --hw-shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3);
+          --hw-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+          
+          /* Z-index Layers */
+          --hw-z-back: -1;
+          --hw-z-normal: 1;
+          --hw-z-menu: 100;
+          --hw-z-modal: 1000;
+        }
+        
+        /* Global Reset */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        /* Base Typography */
+        body {
+          font-family: var(--hw-font-secondary);
+          font-size: 16px;
+          line-height: 1.6;
+          color: var(--hw-white);
+          background-color: var(--hw-black);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+          font-family: var(--hw-font-primary);
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          line-height: 1.2;
+          font-weight: 700;
+          margin-bottom: var(--hw-space-md);
+        }
+        
+        h1 {
+          font-size: 3.5rem;
+          letter-spacing: 3px;
+        }
+        
+        h2 {
+          font-size: 2.5rem;
+          position: relative;
+        }
+        
+        h2:after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 80px;
+          height: 3px;
+          background-color: var(--hw-primary);
+        }
+        
+        h3 {
+          font-size: 1.8rem;
+          color: var(--hw-primary);
+        }
+        
+        p {
+          margin-bottom: var(--hw-space-md);
+          color: #ccc;
+        }
+        
+        a {
+          color: var(--hw-primary);
+          text-decoration: none;
+          transition: color var(--hw-transition-normal);
+        }
+        
+        a:hover {
+          color: var(--hw-primary-light);
+        }
+        
+        /* Navigation */
+        .hw-navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: rgba(11, 11, 11, 0.95);
+          z-index: var(--hw-z-menu);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(5px);
+        }
+        
+        .hw-navbar-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px var(--hw-space-md);
+          max-width: 1800px;
+          margin: 0 auto;
+        }
+        
+        .hw-logo {
+          font-family: var(--hw-font-primary);
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: var(--hw-white);
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          text-decoration: none;
+        }
+        
+        .hw-nav {
+          display: flex;
+          align-items: center;
+        }
+        
+        .hw-nav-list {
+          display: flex;
+          list-style: none;
+        }
+        
+        .hw-nav-item {
+          margin-left: var(--hw-space-md);
+        }
+        
+        .hw-nav-link {
+          color: #999;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          letter-spacing: 1px;
+          padding: 5px;
+          transition: color var(--hw-transition-normal);
+        }
+        
+        .hw-nav-link:hover,
+        .hw-nav-link.active {
+          color: var(--hw-primary);
+        }
+        
+        /* Hero Section */
+        .hw-hero {
+          height: 100vh;
+          background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080') no-repeat center center/cover;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 0 var(--hw-space-md);
+          margin-top: 60px;
+        }
+        
+        .hw-hero-content {
+          max-width: 900px;
+        }
+        
+        .hw-hero h1 {
+          margin-bottom: var(--hw-space-md);
+        }
+        
+        .hw-hero p {
+          font-size: 1.2rem;
+          margin-bottom: var(--hw-space-lg);
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        /* Buttons */
+        .hw-btn {
+          display: inline-block;
+          padding: 12px 30px;
+          font-family: var(--hw-font-primary);
+          font-size: 1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          text-align: center;
+          text-decoration: none;
+          border: none;
+          border-radius: var(--hw-radius-sm);
+          cursor: pointer;
+          transition: all var(--hw-transition-normal);
+        }
+        
+        .hw-btn:focus {
+          outline: none;
+        }
+        
+        .hw-btn-primary {
+          background-color: var(--hw-primary);
+          color: var(--hw-black);
+        }
+        
+        .hw-btn-primary:hover {
+          background-color: var(--hw-primary-dark);
+          color: var(--hw-black);
+        }
+        
+        .hw-btn-lg {
+          padding: 15px 40px;
+          font-size: 1.2rem;
+        }
+        
+        /* Features Section */
+        .hw-section {
+          padding: var(--hw-space-xl) var(--hw-space-md);
+        }
+        
+        .hw-section-title {
+          text-align: center;
+          margin-bottom: var(--hw-space-lg);
+        }
+        
+        .hw-section-title:after {
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+        }
+        
+        .hw-grid {
+          display: grid;
+          gap: var(--hw-space-md);
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+        
+        .hw-feature-grid {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .hw-card {
+          background-color: var(--hw-dark-gray);
+          border-radius: var(--hw-radius-md);
+          overflow: hidden;
+          box-shadow: var(--hw-shadow-md);
+          transition: transform var(--hw-transition-normal), box-shadow var(--hw-transition-normal);
+          padding: var(--hw-space-md);
+        }
+        
+        .hw-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--hw-shadow-lg);
+        }
+        
+        .hw-card-title {
+          margin-top: 0;
+          color: var(--hw-primary);
+        }
+        
+        /* Gameplay Section */
+        .hw-gameplay {
+          background-color: var(--hw-dark-gray);
+        }
+        
+        .hw-gameplay-content {
+          display: flex;
+          align-items: center;
+          gap: 50px;
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+        
+        .hw-gameplay-text {
+          flex: 1;
+        }
+        
+        .hw-gameplay-text h2 {
+          margin-top: 0;
+        }
+        
+        .hw-gameplay-text p {
+          margin-bottom: var(--hw-space-md);
+        }
+        
+        .hw-gameplay-list {
+          list-style: none;
+          margin: var(--hw-space-md) 0;
+        }
+        
+        .hw-gameplay-list li {
+          margin-bottom: var(--hw-space-sm);
+          padding-left: 30px;
+          position: relative;
+          color: #bbb;
+        }
+        
+        .hw-gameplay-list li:before {
+          content: "▶";
+          position: absolute;
+          left: 0;
+          color: var(--hw-primary);
+        }
+        
+        .hw-gameplay-image {
+          flex: 1;
+          height: 500px;
+          background: url('/api/placeholder/700/500') no-repeat center center/cover;
+          border-radius: var(--hw-radius-md);
+          box-shadow: var(--hw-shadow-lg);
+        }
+        
+        /* Signup Section */
+        .hw-signup-section {
+          background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/api/placeholder/1920/1080') no-repeat center center/cover;
+        }
+        
+        .hw-form-container {
+          max-width: 500px;
+          margin: 0 auto;
+          background-color: rgba(17, 17, 17, 0.9);
+          padding: var(--hw-space-lg);
+          border-radius: var(--hw-radius-md);
+          box-shadow: var(--hw-shadow-lg);
+        }
+        
+        .hw-form-title {
+          text-align: center;
+          font-size: 2rem;
+          margin-bottom: 30px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+        
+        .hw-form-group {
+          margin-bottom: var(--hw-space-md);
+        }
+        
+        .hw-label {
+          display: block;
+          margin-bottom: var(--hw-space-sm);
+          font-weight: 500;
+          color: #ddd;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 0.9rem;
+        }
+        
+        .hw-input {
+          width: 100%;
+          padding: 12px 15px;
+          background-color: var(--hw-medium-gray);
+          border: none;
+          border-radius: var(--hw-radius-sm);
+          color: var(--hw-white);
+          font-size: 1rem;
+          transition: background-color var(--hw-transition-normal);
+        }
+        
+        .hw-input:focus {
+          background-color: #333;
+          outline: none;
+        }
+        
+        .hw-input::placeholder {
+          color: #777;
+        }
+        
+        .hw-submit-btn {
+          width: 100%;
+          padding: 15px;
+          background-color: var(--hw-primary);
+          color: var(--hw-black);
+          border: none;
+          border-radius: var(--hw-radius-sm);
+          font-size: 1rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          cursor: pointer;
+          transition: background-color var(--hw-transition-normal);
+        }
+        
+        .hw-submit-btn:hover {
+          background-color: var(--hw-primary-dark);
+        }
+        
+        /* Footer */
+        .hw-footer {
+          background-color: var(--hw-black);
+          padding: var(--hw-space-md);
+          text-align: center;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .hw-footer p {
+          color: var(--hw-light-gray);
+          font-size: 0.9rem;
+          margin-bottom: 0;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+          from { transform: translateY(30px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .hw-anim-fade-in {
+          animation: fadeIn var(--hw-transition-normal) forwards;
+        }
+        
+        .hw-anim-slide-in {
+          animation: slideInUp var(--hw-transition-normal) forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+          h1 {
+            font-size: 3rem;
+          }
+          
+          h2 {
+            font-size: 2.2rem;
+          }
+          
+          h3 {
+            font-size: 1.5rem;
+          }
+          
+          .hw-gameplay-content {
+            flex-direction: column;
+          }
+          
+          .hw-gameplay-image {
+            width: 100%;
+            margin-top: var(--hw-space-md);
+          }
+        }
+        
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 2.5rem;
+          }
+          
+          h2 {
+            font-size: 1.8rem;
+          }
+          
+          h3 {
+            font-size: 1.3rem;
+          }
+          
+          .hw-section {
+            padding: var(--hw-space-md) var(--hw-space-md);
+          }
+          
+          .hw-form-container {
+            padding: var(--hw-space-md);
+          }
+          
+          .hw-navbar-container {
+            padding: 10px var(--hw-space-md);
+          }
+          
+          .hw-logo {
+            font-size: 1.5rem;
+          }
+          
+          .hw-feature-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hw-feature-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          body {
+            font-size: 14px;
+          }
+          
+          h1 {
+            font-size: 2rem;
+          }
+          
+          h2 {
+            font-size: 1.5rem;
+          }
+          
+          h3 {
+            font-size: 1.2rem;
+          }
+          
+          .hw-btn {
+            padding: 10px 20px;
+          }
+          
+          .hw-section {
+            padding: var(--hw-space-md);
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hw-navbar">
+        <div class="hw-navbar-container">
+            <a href="#" class="hw-logo">HIGHWAY WARS</a>
+            <nav class="hw-nav">
+                <ul class="hw-nav-list">
+                    <li class="hw-nav-item"><a href="#gameplay" class="hw-nav-link">Gameplay</a></li>
+                    <li class="hw-nav-item"><a href="#signup" class="hw-nav-link">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hw-hero">
+        <div class="hw-hero-content hw-anim-fade-in">
+            <h1>HIGHWAY WARS: WHERE TRUCKERS BECOME TYCOONS</h1>
+            <p>Face the brutal realities of America's highways – breakdowns, fierce competitors, and ruthless market forces. Navigate rising costs, find profitable loads, and build a trucking empire that dominates coast to coast. Every decision could make or break your business. Do you have the grit to go from one truck to a nationwide fleet?</p>
+            <a href="#signup" class="hw-btn hw-btn-primary hw-btn-lg">START NOW</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="hw-section">
+        <h2 class="hw-section-title">KEY FEATURES</h2>
+        <div class="hw-grid hw-feature-grid">
+            <div class="hw-card hw-anim-slide-in" style="animation-delay: 0.1s;">
+                <h3 class="hw-card-title">Real-World Challenges</h3>
+                <p>Face authentic trucking obstacles: vehicle breakdowns, flat tires, rising insurance costs, and cargo claims.</p>
+                <p>Balance risk management with profit maximization.</p>
+            </div>
+            
+            <div class="hw-card hw-anim-slide-in" style="animation-delay: 0.2s;">
+                <h3 class="hw-card-title">Business Management</h3>
+                <p>Negotiate rates, hire reliable drivers, and make critical financial decisions that impact your company's growth.</p>
+                <p>Scale your operation to unlock new opportunities.</p>
+            </div>
+            
+            <div class="hw-card hw-anim-slide-in" style="animation-delay: 0.3s;">
+                <h3 class="hw-card-title">Strategic Planning</h3>
+                <p>Choose between high-risk, high-reward loads or safer, consistent income. Plan routes efficiently to maximize profit.</p>
+                <p>Every decision shapes your trucking empire.</p>
+            </div>
+            
+            <div class="hw-card hw-anim-slide-in" style="animation-delay: 0.4s;">
+                <h3 class="hw-card-title">Fleet Expansion</h3>
+                <p>Start with one truck and expand to a nationwide operation. Upgrade equipment, open terminals, and dominate the industry.</p>
+                <p>Your ambition knows no limits.</p>
+            </div>
+            
+            <div class="hw-card hw-anim-slide-in" style="animation-delay: 0.5s;">
+                <h3 class="hw-card-title">Industry Dynamics</h3>
+                <p>Navigate shifting market conditions, fluctuating fuel prices, and evolving industry regulations that affect your bottom line.</p>
+                <p>Adapt or get left behind.</p>
+            </div>
+            
+            <div class="hw-card hw-anim-slide-in" style="animation-delay: 0.6s;">
+                <h3 class="hw-card-title">Career Progression</h3>
+                <p>Rise from owner-operator to industry mogul. Establish relationships with shippers and build your reputation in the competitive world of logistics.</p>
+                <p>How far can you go?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Section -->
+    <section id="gameplay" class="hw-section hw-gameplay">
+        <div class="hw-gameplay-content">
+            <div class="hw-gameplay-text">
+                <h2>MASTER THE ROAD</h2>
+                <p>Highway Wars combines strategic decision-making with the gritty reality of America's trucking industry. Every choice you make impacts your business's future.</p>
+                <ul class="hw-gameplay-list">
+                    <li>Balance quick payment against higher-paying loads</li>
+                    <li>Deal with detention time at shippers and receivers</li>
+                    <li>Find reliable drivers as your company expands</li>
+                    <li>Negotiate down costs as you achieve economies of scale</li>
+                    <li>Manage inflationary pressures like rising insurance costs</li>
+                    <li>Build relationships with reliable customers who pay on time</li>
+                </ul>
+                <a href="#signup" class="hw-btn hw-btn-primary">START TRUCKING</a>
+            </div>
+            <div class="hw-gameplay-image"></div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup" class="hw-section hw-signup-section">
+        <div class="hw-form-container">
+            <h2 class="hw-form-title">Create Your Account</h2>
+            <form id="signup-form">
+                <div class="hw-form-group">
+                    <label for="email" class="hw-label">Email Address</label>
+                    <input type="email" id="email" name="email" class="hw-input" required placeholder="yourname@email.com">
+                </div>
+                
+                <div class="hw-form-group">
+                    <label for="firstName" class="hw-label">First Name</label>
+                    <input type="text" id="firstName" name="firstName" class="hw-input" required placeholder="Your first name">
+                </div>
+                
+                <div class="hw-form-group">
+                    <label for="lastName" class="hw-label">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" class="hw-input" required placeholder="Your last name">
+                </div>
+                
+                <div class="hw-form-group">
+                    <label for="company" class="hw-label">Company Name</label>
+                    <input type="text" id="company" name="company" class="hw-input" required placeholder="Your trucking company name">
+                </div>
+                
+                <div class="hw-form-group">
+                    <label for="password" class="hw-label">Password</label>
+                    <input type="password" id="password" name="password" class="hw-input" required placeholder="Create a secure password">
+                </div>
+                
+                <button type="submit" class="hw-submit-btn">START YOUR JOURNEY</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hw-footer">
+        <p>&copy; 2025 Highway Wars. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thanks for signing up! Your trucking empire journey will begin soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
